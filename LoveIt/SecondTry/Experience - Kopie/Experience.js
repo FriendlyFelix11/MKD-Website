@@ -31,8 +31,8 @@ export default class Experience{
         this.theme = new Theme();
         this.world= new World();
         
-        
-        
+
+
         this.time.on("update", () =>{                   //Wenn in "Time" das Event "update" ausgelöst wird soll hier im Master auch "update" ausgelöst werden
             this.update();
         })

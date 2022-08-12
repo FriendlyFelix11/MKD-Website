@@ -114,7 +114,6 @@ export default class Room{
 
         this.swim = this.mixer.clipAction(this.room.animations[0])      //Nimm aus "room" die erste Animation (gibt bislang nur eine)
         this.swim.play();
-
     }
 
 
