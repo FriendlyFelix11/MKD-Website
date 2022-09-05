@@ -19,6 +19,10 @@ export default class Renderer{
         this.renderer = new THREE.WebGLRenderer({
             canvas: this.canvas,
             antialias: true,
+
+            
+            
+            
         });
 
         this.renderer.physicallyCorrectLights = true;
@@ -30,7 +34,8 @@ export default class Renderer{
         this.renderer.setSize(this.sizes.width, this.sizes.height);
         this.renderer.setPixelRatio(this.sizes.pixelRatio);
 
-
+        //Test Clipping
+        this.renderer.localClippingEnabled=true
     }
 
     resize(){
@@ -50,6 +55,7 @@ export default class Renderer{
         // this.renderer.setViewport(this.sizes.width - this.sizes.width/3, this.sizes.height - this.sizes.height/3, this.sizes.width/3, this.sizes.height/3);
         // this.renderer.setScissor(this.sizes.width - this.sizes.width/3, this.sizes.height - this.sizes.height/3, this.sizes.width/3, this.sizes.height/3);
         // this.renderer.render(this.scene, this.camera.perspectiveCamera);
+         //this.renderer.render(this.scene, this.camera.orthographicCamera);
         // this.renderer.setScissorTest(false);
         
    

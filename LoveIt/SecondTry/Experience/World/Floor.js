@@ -36,7 +36,7 @@ export default class Floor{
 
 
     setCircles(){
-        const geometry = new THREE.CircleGeometry( 5, 32 );
+        const geometry = new THREE.CircleGeometry( 5, 64 );
         
         const material = new THREE.MeshStandardMaterial( { color: 0xe5a1aa } );     //Standard statt Basic weil es Schatten haben soll
         const material2 = new THREE.MeshStandardMaterial( { color: 0x8395CD } );

@@ -1,4 +1,6 @@
 import EventEmitter from "events";
+import Experience from "../Experience";
+import World from "./World";
 
 export default class Theme extends EventEmitter{
     constructor(){
@@ -23,6 +25,7 @@ export default class Theme extends EventEmitter{
             document.body.classList.toggle("light-theme");
             
             
+
             console.log(this.theme);
 
             this.emit("switch", this.theme);

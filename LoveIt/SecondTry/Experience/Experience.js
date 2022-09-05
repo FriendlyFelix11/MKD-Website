@@ -8,6 +8,7 @@ import assets from "./Utils/assets.js";
 import Theme from "./World/Theme.js";
 
 import World  from "./World/World.js";
+import Preloader from "./Preloader.js";
 
 
 //Experience ist Master JS Datei
@@ -30,6 +31,7 @@ export default class Experience{
 
         this.theme = new Theme();
         this.world= new World();
+        this.preloader= new Preloader();
         
         
         
@@ -40,6 +42,9 @@ export default class Experience{
         this.sizes.on("resize", () =>{                   
             this.resize();
         })
+
+
+        
     }
 
     update(){                                           //Der MasterUpdate updatet jetzt alle anderen JS Dateien

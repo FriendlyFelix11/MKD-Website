@@ -14,10 +14,18 @@ export default class Camera{
 
         console.log(this.experience, this.sizes, this.scene, this.canvas)
 
+
+        //Test Look@
+
+        this.oCamLookAt = new THREE.Vector3(0,1,0);
+        //Test Look@Ende
+        
+
         this.createPerspectiveCamera();
         this.createOrthographicCamera();
         this.setHelpers();
         this.setOrbitControls();
+        
 
 
     }
@@ -34,7 +42,7 @@ export default class Camera{
         
         this.scene.add(this.perspectiveCamera);
 
-        this.perspectiveCamera.position.set(28,12,14); //Default Position
+        this.perspectiveCamera.position.set(15,12,14); //Default Position
        
     }
 
@@ -48,10 +56,13 @@ export default class Camera{
             this.sizes.frustrum/2,
             -this.sizes.frustrum/2,
             -50,
-            50
+            90
             );
 
         this.orthographicCamera.position.set(0,4,5);
+
+        //this.orthographicCamera.zoom = 2;             //FUnktioniert hier aber in Controls in der GSAP Timeline irgendwie nicht
+
         this.orthographicCamera.rotation.x = -Math.PI /6;   
         
         this.scene.add(this.orthographicCamera);
@@ -62,6 +73,11 @@ export default class Camera{
         this.helper = new THREE.CameraHelper(this.orthographicCamera);
         //this.scene.add(this.helper);   
 
+
+
+
+        
+
     }
 
 
@@ -70,10 +86,10 @@ export default class Camera{
         const size = 10;
         const division = 10;
         const gridHelper = new THREE.GridHelper(size, division);
-        //this.scene.add(gridHelper);
+       // this.scene.add(gridHelper);
 
         const axesHelper = new THREE.AxesHelper(10);
-        //this.scene.add(axesHelper);
+       // this.scene.add(axesHelper);
 
     }
 
@@ -109,6 +125,14 @@ export default class Camera{
         this.helper.update();
         this.helper.position.copy(this.orthographicCamera.position);
         this.helper.rotation.copy(this.orthographicCamera.rotation);
+
+
+        //Test Look@
+
+        this.orthographicCamera.lookAt(this.oCamLookAt);
+        //Test Look@Ende
+        
+       
     }
     
 }
