@@ -27,7 +27,7 @@ export default class Preloader extends EventEmitter{
         })
 
 
-   
+        
         
         
     }
@@ -55,6 +55,17 @@ export default class Preloader extends EventEmitter{
 
         return new Promise((resolve)=>{
             this.timeline = new GSAP.timeline();
+
+           // this.timeline.set(".animatedis", { y: 0, yPercent: 100 });        3 Ladepunkte verstecken
+           // this.timeline.to(".preloader", {
+           //     opacity: 0,
+           //     delay: 1,
+           //     onComplete: () => {
+           //         document
+           //             .querySelector(".preloader")
+           //             .classList.add("hidden");
+           //     },
+           // });
 
 
         if(this.device  === "desktop"){
@@ -101,7 +112,7 @@ export default class Preloader extends EventEmitter{
 
     secondIntro(){
 
-        return new Promise((resolve)=>{
+        return new Promise((resolve2)=>{
 
         this.secondtimeline = new GSAP.timeline();
 
@@ -537,6 +548,8 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+
+            onComplete: resolve2
         },"same3")
 
         
@@ -554,23 +567,35 @@ export default class Preloader extends EventEmitter{
     onScroll(e){
 
         if(e.deltaY > 0){
-            window.removeEventListener("wheel", this.scrollOnce);
+            this.removeEventListeners();
             console.log("FirstScroll");
 
-            this.secondIntro();
+            this.playSecondIntro();
         }
     }
 
+    removeEventListeners(){
+        window.removeEventListener("wheel", this.scrollOnce)
+    }
+    
+
 
    async playFirstIntro(){
+
+        this.scaleFlag = true;
        await this.firstIntro();     //Warte bis firstIntro durchgelaufen ist bis es hier weiter geht
+       this.moveFlag = true;
        this.scrollOnce = this.onScroll.bind(this);
        window.addEventListener("wheel", this.scrollOnce); //Für erste Scroll Bewegung
+
 
     }
 
     async playSecondIntro(){
+        this.moveFlag = false
         await this.secondIntro();
+        this.scaleFlag = false;
+        this.emit("enablecontrols")
     }
 
 

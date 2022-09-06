@@ -29,6 +29,7 @@ export default class Controls{
 
         GSAP.registerPlugin(ScrollTrigger);
         
+        document.querySelector(".page").style.overflow = "visible";
         
         this.roomChildren = this.experience.world.room.roomChildren;
         

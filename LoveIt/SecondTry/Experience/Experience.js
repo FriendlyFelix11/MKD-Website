@@ -9,6 +9,7 @@ import Theme from "./World/Theme.js";
 
 import World  from "./World/World.js";
 import Preloader from "./Preloader.js";
+import Controls from "./World/Controls.js";
 
 
 //Experience ist Master JS Datei
@@ -33,7 +34,10 @@ export default class Experience{
         this.world= new World();
         this.preloader= new Preloader();
         
-        
+        this.preloader.on("enablecontrols", ()=> {
+            this.controls= new Controls();
+            console.log("pain")
+        })
         
         this.time.on("update", () =>{                   //Wenn in "Time" das Event "update" ausgelöst wird soll hier im Master auch "update" ausgelöst werden
             this.update();

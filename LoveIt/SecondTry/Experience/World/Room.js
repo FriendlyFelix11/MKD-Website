@@ -139,42 +139,21 @@ export default class Room{
 
 
 
-            //Canvas "maze" wird auf den Cube als Bumpmap gelegt; Canvas selbst ist display:none
-            if(child.name === "MagicCubeCube"){
+            //Canvas "maze" wird auf den Cube als Bumpmap gelegt; Canvas selbst ist display:none        //FÜR EXPORT AUSGEBLENDET 3 STELLEN: HIER; UPDATE & INDEX
+           // if(child.name === "MagicCubeCube"){
 
-                this.MCube = child;
-                this.bumpMap = new THREE.Texture(maze);
-                
-                child.material = new THREE.MeshPhongMaterial({
-                    color: 0x00aa00,
-                    bumpMap: this.bumpMap
-                });
-                child.bumpScale=-.9;
+                //this.MCube = child;
+                //this.bumpMap = new THREE.Texture(maze);
+                //
+                //child.material = new THREE.MeshPhongMaterial({
+                //    color: 0x00aa00,
+                //    bumpMap: this.bumpMap
+                //});
+                //child.bumpScale=-.9;
                  
-            }
+            //}
 
-             //Test
-
-             //this.bumpMap = new THREE.Texture(maze);
-            // this.testwurfel = new THREE.BoxGeometry();
-             //this.testwurfel.computeVertexNormals();
-             //this.testMat = new THREE.MeshPhongMaterial({
-                // color: 0x00aa00,
-                 //bumpMap: this.bumpMap
-                 
-            // });
-             //this.testMat.bumpScale=-.1;
-             
-            // this.testMesh = new THREE.Mesh(this.testwurfel, this.testMat);
-             //this.testMesh.position.y= 1;
-            // this.testMesh.position.x= 1;
-            // this.testMesh.position.z= 1;
-             
-             //this.scene.add(this.testMesh);
- 
-             //TestEnde
-
-
+            
 
             //Positionsänderungen für Animationen-----------------------------------------------------------------------------
 
@@ -312,8 +291,8 @@ export default class Room{
 
         //Test
 
-        //this.testMat.bumpMap.needsUpdate=true;
-        this.MCube.material.bumpMap.needsUpdate=true;
+        
+        //this.MCube.material.bumpMap.needsUpdate=true;
 
         //TestEnde
 

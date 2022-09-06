@@ -76,11 +76,12 @@ svg{
   z-index: 99999;
   width: 100%;
   height: 100vh;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
 .page-wrapper{
-  position: relative;
+  position: fixed;    /*eigentlich relative aber so geht das mit dem Intro no scroll*/
+ 
 }
 
 /*Preloader*/
