@@ -61,7 +61,7 @@ export default class Camera{
 
         this.orthographicCamera.position.set(0,4,5);
 
-        //this.orthographicCamera.zoom = 2;             //FUnktioniert hier aber in Controls in der GSAP Timeline irgendwie nicht
+        
 
         this.orthographicCamera.rotation.x = -Math.PI /6;   
         

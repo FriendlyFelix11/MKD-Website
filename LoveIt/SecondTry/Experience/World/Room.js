@@ -19,8 +19,9 @@ export default class Room{
 
        this.roomChildren = {};        //leeres Object für alle Meshs vom Raum
        
-
+       console.log(this.room);
        console.log(this.actualRoom);
+       console.log(this.roomChildren);
 
 
        this.lerp ={            //Smooth Scroll
@@ -36,13 +37,6 @@ export default class Room{
 
        
 
-    }
-
-
-
-
-    actPrinter(){
-        console.log("hml")
     }
 
 
@@ -139,6 +133,7 @@ export default class Room{
 
 
 
+
             //Canvas "maze" wird auf den Cube als Bumpmap gelegt; Canvas selbst ist display:none        //FÜR EXPORT AUSGEBLENDET 3 STELLEN: HIER; UPDATE & INDEX
            // if(child.name === "MagicCubeCube"){
 
@@ -168,20 +163,30 @@ export default class Room{
         });
 
 
-        //Licht 3
+        //Licht Aquarium
         const width = 0.9;
         const height = 0.7;
-        const intensity = 1;
+        const intensity = 0;
         this.rectLight = new THREE.RectAreaLight( 0xffffff, intensity,  width, height );
         this.rectLight.position.set( 8.5, 8.2, -2 );
         this.rectLight.rotation.x = -Math.PI/2;
         this.rectLight.rotation.z = -Math.PI/4;
         this.actualRoom.add( this.rectLight );
 
+
+         //Licht Softbox
+         const width2 = 0.9;
+         const height2 = 0.7;
+         const intensity2 = 0;
+         this.rectLight2 = new THREE.RectAreaLight( 0xffffff, intensity2,  width2, height2 );
+         this.rectLight2.position.set( -35.2, 12.9, 31.25 );
+         this.rectLight2.rotation.x = 7*Math.PI/6;
+         this.rectLight2.rotation.y = -Math.PI/10;
+         this.actualRoom.add( this.rectLight2 );
         
 
-        //this.rectLightHelper = new RectAreaLightHelper( this.rectLight );
-        //this.rectLight.add( this.rectLightHelper );
+        //this.rectLightHelper = new RectAreaLightHelper( this.rectLight2 );
+        //this.rectLight2.add( this.rectLightHelper );
 
 
 
@@ -278,7 +283,7 @@ export default class Room{
 
 
     update(){
-        this.mixer.update(this.time.delta * 0.001); //Speed of the Fish
+        this.mixer.update(this.time.delta * 0.001); //Speed of the Animation
         
         this.lerp.current = GSAP.utils.interpolate(    
             this.lerp.current,

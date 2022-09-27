@@ -22,6 +22,9 @@ export default class Controls{
         this.circleFirst = this.experience.world.floor.circleFirst;
         this.circleSecond = this.experience.world.floor.circleSecond;
         this.circleThird = this.experience.world.floor.circleThird;
+        this.circleFourth = this.experience.world.floor.circleFourth;
+        this.circleFifth = this.experience.world.floor.circleFifth;
+        this.circleSixed = this.experience.world.floor.circleSixed;
 
 
 
@@ -42,11 +45,17 @@ export default class Controls{
 
 
 
+        this.alreadyPrinted = false;
         this.activatePrinterButton();
-        
-        
+        //this.printerButtonOn()
 
+        //this.roomChildren.Circle.material.color.r = 0
+        //this.roomChildren.Circle.material.color.g = 255
+        //this.roomChildren.Circle.material.color.b = 0
+      
         
+        
+          
 
         
     }
@@ -66,8 +75,8 @@ buildRoom2(){
   this.bulidRoom2Timeline.to(this.roomChildren.FloorRoom2.position,{
     x:-7.02302,
     z:13.7204,
-    duration:2,
-
+    duration:1.6,
+    ease: "Power2.easeInOut(1.6)"
   })
 
   this.bulidRoom2Timeline.to(this.roomChildren.FloorTile.scale,{
@@ -75,6 +84,8 @@ buildRoom2(){
     y: 1,
     z: 1,
     duration:0.5,
+    delay: 1.2,
+    
   }, "sameTile")
 
   this.bulidRoom2Timeline.to(this.roomChildren.FloorTile1.scale,{
@@ -82,7 +93,7 @@ buildRoom2(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 0.1,
+    delay: 1.5,
   }, "sameTile")
 
   this.bulidRoom2Timeline.to(this.roomChildren.FloorTile2.scale,{
@@ -90,7 +101,7 @@ buildRoom2(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 0.2,
+    delay: 1.8,
   }, "sameTile")
 
   this.bulidRoom2Timeline.to(this.roomChildren.FloorTile3.scale,{
@@ -98,7 +109,7 @@ buildRoom2(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 0.3,
+    delay: 2.1,
   }, "sameTile")
   
   this.bulidRoom2Timeline.to(this.roomChildren.FloorTile4.scale,{
@@ -106,7 +117,7 @@ buildRoom2(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 0.4,
+    delay: 2.4,
   }, "sameTile")
 
   //Würfel
@@ -115,6 +126,7 @@ buildRoom2(){
     y: 1,
     z: 1,
     duration:0.5,
+    delay:0.3,
   }, "sameTile")
 
   this.bulidRoom2Timeline.to(this.roomChildren.MagicCubeCube.scale,{
@@ -122,6 +134,7 @@ buildRoom2(){
     y: 1,
     z: 1,
     duration:0.5,
+    delay:0.6,
   }, "sameTile")
 
   //Regal
@@ -137,6 +150,7 @@ buildRoom2(){
     y: 1,
     z: 1,
     duration:0.5,
+    delay:0.3,
   }, "sameTile")
 
   this.bulidRoom2Timeline.to(this.roomChildren.Book006.scale,{
@@ -144,6 +158,7 @@ buildRoom2(){
     y: 1,
     z: 1,
     duration:0.5,
+    delay:0.3,
   }, "sameTile")
 
   //VR
@@ -152,6 +167,7 @@ buildRoom2(){
     y: 1,
     z: 1,
     duration:0.5,
+    delay:0.3,
   }, "sameTile")
 
 
@@ -185,7 +201,7 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 0.1,
+    delay: 0.4,
   }, "sameTile")
 
   //Tische---
@@ -194,7 +210,7 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 0.2,
+    delay: 0.5,
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.TableFoot002.scale,{
@@ -202,14 +218,14 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 0.3,
+    delay: 0.5,
   }, "sameTile")
   
   this.bulidRoom3Timeline.to(this.roomChildren.TableTop001.scale,{
     x: 1,
     y: 1,
     z: 1,
-    duration:0.5,
+    duration:0.6,
     delay: 0.4,
   }, "sameTile")
 
@@ -217,7 +233,7 @@ buildRoom3(){
     x: 1,
     y: 1,
     z: 1,
-    duration:0.5,
+    duration:0.6,
   }, "sameTile")
 
   //Softbox---
@@ -226,6 +242,7 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
+    delay: 1.1
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.SoftboxLicht.scale,{
@@ -233,6 +250,7 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
+    delay: 1.5
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.SoftboxSchirm.scale,{
@@ -240,6 +258,7 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
+    delay: 1.8
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.Steckdose.scale,{
@@ -247,14 +266,16 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
+    delay: 2.0
   }, "sameTile")
 
-  //VR
+  //Shooting
   this.bulidRoom3Timeline.to(this.roomChildren.StativCamera.scale,{
     x: 1,
     y: 1,
     z: 1,
     duration:0.5,
+    delay: 1.1
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.CameraBack.scale,{
@@ -262,6 +283,7 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
+    delay: 1.3
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.Body.scale,{
@@ -269,6 +291,7 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
+    delay: 1.3
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.Tuchgestell.scale,{
@@ -276,6 +299,7 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
+    delay: 1.6
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.StativausCAD.scale,{
@@ -283,6 +307,7 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
+    delay: 2.0
   }, "sameTile")
 
   //PCs---
@@ -291,6 +316,7 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
+    delay: 0.8
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.PcScreen004.scale,{
@@ -298,6 +324,7 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
+    delay: 0.8
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.PcScreen3DL.scale,{
@@ -305,6 +332,7 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
+    delay: 0.8
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.PcScreen3DR.scale,{
@@ -312,6 +340,7 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
+    delay: 0.8
   }, "sameTile")
 
   //Kaffee---
@@ -320,6 +349,7 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
+    delay: 0.7
   }, "sameTile")
 
   //Keyboard---
@@ -328,28 +358,32 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
-  }, "sameKeyB")
+    delay: 0.9
+  }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.Key160.scale,{
     x: 1,
     y: 1,
     z: 1,
     duration:0.5,
-  }, "sameKeyB")
+    delay: 0.9
+  }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.KeyEsc001.scale,{
     x: 1,
     y: 1,
     z: 1,
     duration:0.5,
-  }, "sameKeyB")
+    delay: 0.9
+  }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.Key092.scale,{
     x: 1,
     y: 1,
     z: 1,
     duration:0.5,
-  }, "sameKeyB")
+    delay: 0.9
+  }, "sameTile")
 
   //3DDrucker---
   this.bulidRoom3Timeline.to(this.roomChildren.Text001.scale,{
@@ -357,27 +391,31 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
-  }, "samePrinter")
+    delay: 2.3
+  }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.DPrinter001.scale,{
     x: 1,
     y: 1,
     z: 1,
     duration:0.5,
-  }, "samePrinter")
+    delay: 2.3
+  }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.DPrinterTerminal001.scale,{
     x: 1,
     y: 1,
     z: 1,
     duration:0.5,
-  }, "samePrinter")
+    delay: 2.3
+  }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.DPrinterPlatte001.scale,{
     x: 1,
     y: 1,
     z: 1,
     duration:0.5,
+    delay: 2.3
   }, "samePrinter")
 
   this.bulidRoom3Timeline.to(this.roomChildren.DPrinterSpule001.scale,{
@@ -385,49 +423,56 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
-  }, "samePrinter")
+    delay: 2.3
+  }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.DPrinterMaterial001.scale,{
     x: 1,
     y: 1,
     z: 1,
     duration:0.5,
-  }, "samePrinter")
+    delay: 2.3
+  }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.DPrinterHalterDuse001.scale,{
     x: 1,
     y: 1,
     z: 1,
     duration:0.5,
-  }, "samePrinter")
+    delay: 2.3
+  }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.DPrinterDuse001.scale,{
     x: 1,
     y: 1,
     z: 1,
     duration:0.5,
-  }, "samePrinter")
+    delay: 2.3
+  }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.DPrinterKnopfe001.scale,{
     x: 1,
     y: 1,
     z: 1,
     duration:0.5,
-  }, "samePrinter")
+    delay: 2.3
+  }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.Circle.scale,{
     x: 1,
     y: 1,
     z: 1,
     duration:0.5,
-  }, "samePrinter")
+    delay: 2.3
+  }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.DPrinterScreen001.scale,{
     x: 1,
     y: 1,
     z: 1,
     duration:0.5,
-  }, "samePrinter")
+    delay: 2.3
+  }, "sameTile")
 
 
 
@@ -455,6 +500,9 @@ activatePrinterButton(){
       this.experience.world.room.duese.play();
       this.experience.world.room.duesehalter.play();
 
+      this.printerButtonOff();
+      this.alreadyPrinted = true
+
 
        return new Promise((done)=>{
         
@@ -473,6 +521,58 @@ activatePrinterButton(){
 
   });
 }
+
+printerButtonOn(){
+
+  if(this.alreadyPrinted == false){
+    console.log("PrinterOn")
+  document.querySelector(".Printer-activate").setAttribute("style", "display: flex");
+  
+  //this.roomChildren.Circle.material.color.r = 0
+  //this.roomChildren.Circle.material.color.g = 255
+  //this.roomChildren.Circle.material.color.b = 0
+
+  this.blinking = setInterval(()=>this.printerButtonBlinking(), 1000)
+  this.isRed = false;
+  
+  }
+
+  }
+  
+
+printerButtonOff(){
+  console.log("PrinterOff")
+  document.querySelector(".Printer-activate").setAttribute("style", "display: none")
+
+  clearInterval(this.blinking)
+  this.isRed = true
+  this.roomChildren.Circle.material.color.r = 255
+  this.roomChildren.Circle.material.color.g = 0
+  this.roomChildren.Circle.material.color.b = 0 
+
+}
+
+printerButtonBlinking(){
+  console.log("start")
+  this.roomChildren.Circle.material.color.r = 0
+  this.roomChildren.Circle.material.color.g = 255
+  this.roomChildren.Circle.material.color.b = 0
+
+  setTimeout(()=>this.printerButtonBlinking2(),500)
+  
+}
+
+printerButtonBlinking2(){
+
+  if(this.isRed != true){
+  this.roomChildren.Circle.material.color.r = 0
+  this.roomChildren.Circle.material.color.g = 0
+  this.roomChildren.Circle.material.color.b = 0
+  }
+}
+
+
+
 
 
 
@@ -764,6 +864,11 @@ activatePrinterButton(){
                 id:"test6",
                 scrub: 0.6,
                 invalidateOnRefresh: true,
+                onEnter: ()=>this.printerButtonOn(),    //Scrolltrigegr Callbacks
+                onLeave: ()=>this.printerButtonOff(),
+                onEnterBack: ()=>this.printerButtonOn(),
+                onLeaveBack: ()=>this.printerButtonOff(), 
+              
                 //markers: true,
             },
         })
@@ -797,6 +902,11 @@ activatePrinterButton(){
           z: 0.15,
           
          },"samePrinter")
+
+        
+
+
+      
 
 
 
@@ -893,6 +1003,69 @@ activatePrinterButton(){
           })
 
           this.thirdMoveTimeline.to(this.circleThird.scale,{
+            x: 3,
+            y: 3,
+            z: 3,
+          })
+
+
+
+          this.newRoomMoveTimeline = new GSAP.timeline({
+
+            //Wann soll was passieren
+              scrollTrigger:{
+                  trigger: ".newRoom-move",  
+                  start: "top top",       
+                  end:"bottom bottom",
+                  scrub: 0.6,
+                  invalidateOnRefresh: true,
+                  
+              },
+          })
+
+          this.newRoomMoveTimeline.to(this.circleFourth.scale,{
+            x: 3,
+            y: 3,
+            z: 3,
+          })
+
+
+
+          this.fourthMoveTimeline = new GSAP.timeline({
+
+            //Wann soll was passieren
+              scrollTrigger:{
+                  trigger: ".fourth-move",  
+                  start: "top top",       
+                  end:"bottom bottom",
+                  scrub: 0.6,
+                  invalidateOnRefresh: true,
+                  
+              },
+          })
+
+          this.fourthMoveTimeline.to(this.circleFifth.scale,{
+            x: 3,
+            y: 3,
+            z: 3,
+          })
+
+
+
+          this.sixedMoveTimeline = new GSAP.timeline({
+
+            //Wann soll was passieren
+              scrollTrigger:{
+                  trigger: ".sixed-move",  
+                  start: "top top",       
+                  end:"bottom bottom",
+                  scrub: 0.6,
+                  invalidateOnRefresh: true,
+                  
+              },
+          })
+
+          this.sixedMoveTimeline.to(this.circleSixed.scale,{
             x: 3,
             y: 3,
             z: 3,

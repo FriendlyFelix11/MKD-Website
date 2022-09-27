@@ -36,7 +36,6 @@ export default class Experience{
         
         this.preloader.on("enablecontrols", ()=> {
             this.controls= new Controls();
-            console.log("pain")
         })
         
         this.time.on("update", () =>{                   //Wenn in "Time" das Event "update" ausgelöst wird soll hier im Master auch "update" ausgelöst werden

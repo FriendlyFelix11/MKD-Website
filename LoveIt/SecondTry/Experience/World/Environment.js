@@ -64,6 +64,8 @@ export default class Environment{
         this.ambientlight = new THREE.AmbientLight("#ffffff", 1);
         this.scene.add(this.ambientlight);
 
+        
+
 
     }
 
@@ -92,6 +94,15 @@ export default class Environment{
             });
 
 
+            GSAP.to(this.experience.world.room.rectLight,{
+                intensity: 1
+            })
+
+            GSAP.to(this.experience.world.room.rectLight2,{
+                intensity: 4
+            })
+
+
         }
 
 
@@ -114,8 +125,16 @@ export default class Environment{
             });
 
             GSAP.to(this.ambientlight,{
-                intensity: 3,
+                intensity: 1,
             });
+
+            GSAP.to(this.experience.world.room.rectLight,{
+                intensity: 0
+            })
+
+            GSAP.to(this.experience.world.room.rectLight2,{
+                intensity: 0
+            })
         }
 
        

@@ -45,26 +45,44 @@ export default class Floor{
         this.circleFirst = new THREE.Mesh( geometry, material );
         this.circleSecond = new THREE.Mesh( geometry, material2 );
         this.circleThird = new THREE.Mesh( geometry, material3 );
+        this.circleFourth = new THREE.Mesh( geometry, material );
+        this.circleFifth = new THREE.Mesh( geometry, material2 );
+        this.circleSixed = new THREE.Mesh( geometry, material3 );
 
         this.circleFirst.position.y = -0.29;
         this.circleSecond.position.y = -0.28;
         this.circleThird.position.y = -0.27;
+        this.circleFourth.position.y = -0.26;
+        this.circleFifth.position.y = -0.25;
+        this.circleSixed.position.y = -0.24;
         
         this.circleFirst.scale.set(0,0,0);
         this.circleSecond.scale.set(0,0,0);
         this.circleThird.scale.set(0,0,0);
+        this.circleFourth.scale.set(0,0,0);
+        this.circleFifth.scale.set(0,0,0);
+        this.circleSixed.scale.set(0,0,0);
         
         this.circleFirst.rotation.x = -Math.PI/2
         this.circleSecond.rotation.x = -Math.PI/2
         this.circleThird.rotation.x = -Math.PI/2
+        this.circleFourth.rotation.x = -Math.PI/2
+        this.circleFifth.rotation.x = -Math.PI/2
+        this.circleSixed.rotation.x = -Math.PI/2
         
         this.circleFirst.receiveShadow = true;
         this.circleSecond.receiveShadow = true;
         this.circleThird.receiveShadow = true;
+        this.circleFourth.receiveShadow = true;
+        this.circleFifth.receiveShadow = true;
+        this.circleSixed.receiveShadow = true;
 
         this.scene.add( this.circleFirst );
         this.scene.add( this.circleSecond );
         this.scene.add( this.circleThird );
+        this.scene.add( this.circleFourth );
+        this.scene.add( this.circleFifth );
+        this.scene.add( this.circleSixed );
     }
    
     resize(){

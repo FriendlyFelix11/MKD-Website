@@ -56,16 +56,16 @@ export default class Preloader extends EventEmitter{
         return new Promise((resolve)=>{
             this.timeline = new GSAP.timeline();
 
-           // this.timeline.set(".animatedis", { y: 0, yPercent: 100 });        3 Ladepunkte verstecken
-           // this.timeline.to(".preloader", {
-           //     opacity: 0,
-           //     delay: 1,
-           //     onComplete: () => {
-           //         document
-           //             .querySelector(".preloader")
-           //             .classList.add("hidden");
-           //     },
-           // });
+            //this.timeline.set(".animatedis", { y: 0, yPercent: 100 });        // MAcht style kaputt?
+            this.timeline.to(".preloader", {                                    //   3 Ladepunkte verstecken
+                opacity: 0,
+                delay: 1,
+                onComplete: () => {
+                    document
+                        .querySelector(".preloader")
+                        .classList.add("hidden");
+                },
+            });
 
 
         if(this.device  === "desktop"){
@@ -95,6 +95,11 @@ export default class Preloader extends EventEmitter{
 
             onComplete: resolve,
 
+        })
+
+        //BouncingArrow
+        this.timeline.to(".arrow-svg-wrapper",{
+            opacity: 1
         })
 
         }
@@ -128,6 +133,11 @@ export default class Preloader extends EventEmitter{
 
         })
 
+        //BouncingArrow verschwindet
+        this.timeline.to(".arrow-svg-wrapper",{
+            opacity: 0
+        })
+
         //Restlichen Texte kommen
         this.timeline.to(".hero-main-title .animatedis",{
             yPercent: -100,
@@ -158,10 +168,7 @@ export default class Preloader extends EventEmitter{
             opacity: 1
         },"sametexts")
 
-        //BouncingArrow
-        this.timeline.to(".arrow-svg-wrapper",{
-            opacity: 1
-        },"sametexts")
+        
 
 
         //Raumaufbau---
@@ -234,6 +241,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            
         },"same3")
 
         this.secondtimeline.to(this.roomChildren.TableTop.scale,{
@@ -242,6 +250,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 0.2
         },"same3")
 
         this.secondtimeline.to(this.roomChildren.TableTopTop.scale,{
@@ -250,6 +259,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 0.4
         },"same3")
 
         this.secondtimeline.to(this.roomChildren.BinBox.scale,{
@@ -258,6 +268,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 0.3
         },"same3")
 
         this.secondtimeline.to(this.roomChildren.BoxFrame.scale,{
@@ -265,7 +276,7 @@ export default class Preloader extends EventEmitter{
             y: 1,
             z: 1,
             ease: "back.out(2.2)",
-            duration: 0.5,
+            duration: 0.2,
         },"same3")
 
         this.secondtimeline.to(this.roomChildren.Pencilholder.scale,{
@@ -274,6 +285,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 0.8
         },"same3")
 
         this.secondtimeline.to(this.roomChildren.PencilBlue.scale,{
@@ -282,6 +294,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 0.9
         },"same3")
 
         this.secondtimeline.to(this.roomChildren.PencilRed.scale,{
@@ -290,6 +303,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 0.9
         },"same3")
 
 
@@ -301,6 +315,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 0.5
         },"same3")
 
         this.secondtimeline.to(this.roomChildren.PcScreen001.scale,{
@@ -309,6 +324,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 0.5
         },"same3")
 
         //Keyboard--
@@ -318,6 +334,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 0.7
         },"same3")
 
         this.secondtimeline.to(this.roomChildren.Key019.scale,{
@@ -326,6 +343,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 0.7
         },"same3")
 
         this.secondtimeline.to(this.roomChildren.KeyEsc.scale,{
@@ -334,6 +352,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 0.7
         },"same3")
 
         this.secondtimeline.to(this.roomChildren.Key080.scale,{
@@ -342,6 +361,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 0.7
         },"same3")
 
         //Pflanze
@@ -351,6 +371,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 0.6
         },"same3")
 
         this.secondtimeline.to(this.roomChildren.Leafs.scale,{
@@ -358,7 +379,8 @@ export default class Preloader extends EventEmitter{
             y: 1,
             z: 1,
             ease: "back.out(2.2)",
-            duration: 0.5,
+            duration: 0.6,
+            delay: 0.7
         },"same3")
 
         //Uhr--
@@ -368,6 +390,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 1.0
         },"same3")
 
         this.secondtimeline.to(this.roomChildren.ZeigerStunden.scale,{
@@ -376,6 +399,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 1.2
         },"same3")
 
         this.secondtimeline.to(this.roomChildren.ZeigerMinuten.scale,{
@@ -384,6 +408,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 1.1
         },"same3")
 
         //Stuhl
@@ -393,6 +418,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 0.2
         },"same3")
 
         this.secondtimeline.to(this.roomChildren.ChairLeg.scale,{
@@ -401,6 +427,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 0.0
         },"same3")
 
         //TischKlein
@@ -410,6 +437,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 1.4
         },"same3")
 
         this.secondtimeline.to(this.roomChildren.Book004.scale,{
@@ -418,6 +446,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 1.7
         },"same3")
 
         this.secondtimeline.to(this.roomChildren.CoffeeMug.scale,{
@@ -426,6 +455,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 1.8
         },"same3")
 
         this.secondtimeline.to(this.roomChildren.PencilRed001.scale,{
@@ -434,6 +464,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 1.9
         },"same3")
 
         //Regale
@@ -443,6 +474,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 0.7
         },"same3")
 
         this.secondtimeline.to(this.roomChildren.Book.scale,{
@@ -451,6 +483,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 1.0
         },"same3")
 
         this.secondtimeline.to(this.roomChildren.Box.scale,{
@@ -459,6 +492,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 0.8
         },"same3")
 
         this.secondtimeline.to(this.roomChildren.Lamp001.scale,{
@@ -467,6 +501,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 0.9
         },"same3")
 
         this.secondtimeline.to(this.roomChildren.Shelfs001.scale,{
@@ -475,6 +510,8 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 0.7
+            
         },"same3")
 
         this.secondtimeline.to(this.roomChildren.DekoAt.scale,{
@@ -483,6 +520,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 1.3
         },"same3")
 
         this.secondtimeline.to(this.roomChildren.Ordner.scale,{
@@ -491,6 +529,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 1.1
         },"same3")
 
         this.secondtimeline.to(this.roomChildren.Plane003.scale,{
@@ -499,6 +538,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 1.2
         },"same3")
 
         this.secondtimeline.to(this.roomChildren.Plane004.scale,{
@@ -507,6 +547,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 1.2
         },"same3")
 
         //Aquarium--
@@ -516,6 +557,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 1.3
         },"same3")
 
         this.secondtimeline.to(this.roomChildren.Glas.scale,{
@@ -524,6 +566,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 1.3
         },"same3")
 
         this.secondtimeline.to(this.roomChildren.rock.scale,{
@@ -532,6 +575,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 1.3
         },"same3")
 
         this.secondtimeline.to(this.roomChildren.SeaPlant.scale,{
@@ -540,6 +584,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 1.3
         },"same3")
 
         this.secondtimeline.to(this.roomChildren.Fish.scale,{
@@ -548,6 +593,7 @@ export default class Preloader extends EventEmitter{
             z: 1,
             ease: "back.out(2.2)",
             duration: 0.5,
+            delay: 1.3,
 
             onComplete: resolve2
         },"same3")

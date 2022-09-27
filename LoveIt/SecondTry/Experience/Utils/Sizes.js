@@ -40,7 +40,7 @@ export default class Sizes extends EventEmitter{
             
         })
 
-        //window.onscroll = function () {window.scrollTo(100, 100);}  //Webseite Scrollt nicht
+        
 
 
 
