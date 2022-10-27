@@ -68,43 +68,70 @@ export default class Preloader extends EventEmitter{
             });
 
 
+
         if(this.device  === "desktop"){
 
-        this.timeline.to(this.roomChildren.WallCover.scale,{
-            x:0.1,
-            y:0.1,
-            z:0.1,
-            ease: "back.out(2.5)",
-            duration:2,
-        })
+            this.timeline.to(this.roomChildren.WallCover.scale,{
+                x:0.1,
+                y:0.1,
+                z:0.1,
+                ease: "back.out(2.5)",
+                duration:2,
+            })
 
-        this.timeline.to(this.roomChildren.WallCover.position,{
-            x: () =>{
-                return -(this.sizes.width*0.007)     //With my PC = 1032px ich will, dass Camera bei x= 1,6 ist => 1.6/1032 = 0.0016
-              },
-            ease: "power1.out",
-            duration: 1,
-        })
+            this.timeline.to(this.roomChildren.WallCover.position,{
+                x: () =>{
+                    return -(this.sizes.width*0.007)     //With my PC = 1032px camera shall be at x= 1,6  => 1.6/1032 = 0.0016
+                  },
+                ease: "power1.out",
+                duration: 1,
+            })
 
 
-        //Text animation
-        this.timeline.to(".intro-text .animatedis",{
+            //Text animation
+            this.timeline.to(".intro-text .animatedis",{
             yPercent: -100,
             stagger: 0.07,
             ease: "back.out(1.2)",
 
             onComplete: resolve,
 
-        })
+            })
 
-        //BouncingArrow
-        this.timeline.to(".arrow-svg-wrapper",{
+            //BouncingArrow
+            this.timeline.to(".arrow-svg-wrapper",{
             opacity: 1
-        })
+            })
 
         }
 
-        else if(this.device === "mobile"){}
+        else if(this.device === "mobile"){
+
+            this.timeline.to(this.roomChildren.WallCover.scale,{
+                x:0.1,
+                y:0.1,
+                z:0.1,
+                ease: "back.out(2.5)",
+                duration:2,
+            })
+
+            //Text animation
+            this.timeline.to(".intro-text .animatedis",{
+            yPercent: -100,
+            stagger: 0.07,
+            ease: "back.out(1.2)",
+
+            onComplete: resolve,
+
+            })
+
+            //BouncingArrow
+            this.timeline.to(".arrow-svg-wrapper",{
+            opacity: 1
+            })
+
+
+        }
         })
 
         
@@ -123,7 +150,7 @@ export default class Preloader extends EventEmitter{
 
 
         //Desktop-----------------------
-        if(this.device  === "desktop"){
+        //if(this.device  === "desktop"){
 
         //Text Intro verschwindet
         this.timeline.to(".intro-text .animatedis",{
@@ -225,16 +252,16 @@ export default class Preloader extends EventEmitter{
            
         },"same2")
 
-    }
+    //}
 
         //Mobile---------------------------
-        else if(this.device === "mobile"){}
+        //else if(this.device === "mobile"){}
 
 
         
         //InnenEinrichtung---
 
-        //Tisch
+        //Table --
         this.secondtimeline.to(this.roomChildren.TableFoot.scale,{
             x: 1,
             y: 1,
@@ -308,7 +335,7 @@ export default class Preloader extends EventEmitter{
 
 
 
-        //PC--
+        //PC --
         this.secondtimeline.to(this.roomChildren.PcScreen.scale,{
             x: 1,
             y: 1,
@@ -327,7 +354,7 @@ export default class Preloader extends EventEmitter{
             delay: 0.5
         },"same3")
 
-        //Keyboard--
+        //Keyboard --
         this.secondtimeline.to(this.roomChildren.Keyboard.scale,{
             x: 1,
             y: 1,
@@ -364,7 +391,7 @@ export default class Preloader extends EventEmitter{
             delay: 0.7
         },"same3")
 
-        //Pflanze
+        //Plant --
         this.secondtimeline.to(this.roomChildren.PlantPot.scale,{
             x: 1,
             y: 1,
@@ -383,7 +410,7 @@ export default class Preloader extends EventEmitter{
             delay: 0.7
         },"same3")
 
-        //Uhr--
+        //Clock --
         this.secondtimeline.to(this.roomChildren.Clock.scale,{
             x: 1,
             y: 1,
@@ -411,7 +438,7 @@ export default class Preloader extends EventEmitter{
             delay: 1.1
         },"same3")
 
-        //Stuhl
+        //Chair --
         this.secondtimeline.to(this.roomChildren.Chair.scale,{
             x: 1,
             y: 1,
@@ -430,7 +457,7 @@ export default class Preloader extends EventEmitter{
             delay: 0.0
         },"same3")
 
-        //TischKlein
+        //TableSmall --
         this.secondtimeline.to(this.roomChildren.TableSmall.scale,{
             x: 1,
             y: 1,
@@ -467,7 +494,7 @@ export default class Preloader extends EventEmitter{
             delay: 1.9
         },"same3")
 
-        //Regale
+        //Shelfs --
         this.secondtimeline.to(this.roomChildren.Shelfs.scale,{
             x: 1,
             y: 1,
@@ -608,7 +635,7 @@ export default class Preloader extends EventEmitter{
 
 
 
-    //Erste Mausradbewegung------------------------------------------------------------------------------
+    //First Scroll------------------------------------------------------------------------------
 
     onScroll(e){
 
@@ -629,10 +656,10 @@ export default class Preloader extends EventEmitter{
    async playFirstIntro(){
 
         this.scaleFlag = true;
-       await this.firstIntro();     //Warte bis firstIntro durchgelaufen ist bis es hier weiter geht
+       await this.firstIntro();     //Wait here unitl firstIntro is done
        this.moveFlag = true;
        this.scrollOnce = this.onScroll.bind(this);
-       window.addEventListener("wheel", this.scrollOnce); //Für erste Scroll Bewegung
+       window.addEventListener("wheel", this.scrollOnce); //Check for first scroll
 
 
     }

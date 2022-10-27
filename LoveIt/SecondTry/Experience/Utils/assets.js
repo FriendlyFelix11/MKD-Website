@@ -14,7 +14,7 @@ export default[
     {
         name: "screen2",
         type: "videoTexture",
-        path: "/textures/RCFWebsite.mp4"
+        path: "/textures/Marc.mp4"
     },
 
     {

@@ -12,24 +12,24 @@ import Preloader from "./Preloader.js";
 import Controls from "./World/Controls.js";
 
 
-//Experience ist Master JS Datei
+//Experience is the Master JS file
 
 export default class Experience{
     static instance
     constructor(canvas){
         if(Experience.instance){
-            return Experience.instance                  //Canvas wird erstellt
+            return Experience.instance                  
         }
         Experience.instance = this;
-        this.canvas = canvas;
-        this.scene = new THREE.Scene();                 //Zugriff auf alle anderen JS Dateien
+        
+        this.canvas = canvas;                           //Canvas is created
+
+        this.scene = new THREE.Scene();                 //Access to all other scripts
         this.sizes = new Sizes();
         this.camera = new Camera();
         this.renderer = new Renderer();
         this.time = new Time();
         this.resources= new Resources(assets);
-        
-
         this.theme = new Theme();
         this.world= new World();
         this.preloader= new Preloader();
@@ -38,7 +38,7 @@ export default class Experience{
             this.controls= new Controls();
         })
         
-        this.time.on("update", () =>{                   //Wenn in "Time" das Event "update" ausgelöst wird soll hier im Master auch "update" ausgelöst werden
+        this.time.on("update", () =>{                   //When Time.js triggers its "update" then this update-function also gets triggerd
             this.update();
         })
 
@@ -50,7 +50,7 @@ export default class Experience{
         
     }
 
-    update(){                                           //Der MasterUpdate updatet jetzt alle anderen JS Dateien
+    update(){                                           //The Masterscript Experience triggers all the other update-functions
         this.camera.update();
         this.renderer.update();
         this.world.update();

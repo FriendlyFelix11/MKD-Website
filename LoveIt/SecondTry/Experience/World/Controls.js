@@ -699,19 +699,6 @@ printerButtonBlinking2(){
                 
                },"same3")
                
-             
-               //Autobuild Room 2
-               this.thirdMoveTimelineAuto = new GSAP.timeline({
-                scrollTrigger:{
-                    trigger: ".third-move",    
-                    start: "center center",
-                    onEnter:()=>this.buildRoom2(),
-                    
-                },
-            })
-
-               
-
 
 
               //----newRoom Bewegung------------------------------ Cam: -1,2,5 Look@: -1,-1,0 Z:0.35
@@ -756,20 +743,6 @@ printerButtonBlinking2(){
              },"sameNR")
 
 
-             //Autobuild Room 3
-             this.thirdMoveTimelineAuto = new GSAP.timeline({
-              scrollTrigger:{
-                  trigger: ".newRoom-move",    
-                  start: "center center",
-                  onEnter:()=>this.buildRoom3(),
-                  
-              },
-          })
-
-
-             
-
-             
 
 
           
@@ -1008,6 +981,16 @@ printerButtonBlinking2(){
             z: 3,
           })
 
+           //Autobuild Room 2
+           this.thirdMoveTimelineAuto = new GSAP.timeline({
+            scrollTrigger:{
+                trigger: ".third-move",    
+                start: "center center",
+                onEnter:()=>this.buildRoom2(),
+                
+            },
+        })
+
 
 
           this.newRoomMoveTimeline = new GSAP.timeline({
@@ -1027,6 +1010,16 @@ printerButtonBlinking2(){
             x: 3,
             y: 3,
             z: 3,
+          })
+
+          //Autobuild Room 3
+             this.thirdMoveTimelineAuto = new GSAP.timeline({
+              scrollTrigger:{
+                  trigger: ".newRoom-move",    
+                  start: "center center",
+                  onEnter:()=>this.buildRoom3(),
+                  
+              },
           })
 
 

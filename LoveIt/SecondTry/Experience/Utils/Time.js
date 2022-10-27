@@ -17,10 +17,9 @@ export default class Time extends EventEmitter{
         this. current = currentTime;
         this.elapsed = this.current - this.start;
 
-
-        //console.log(this.delta);      //Zeit läuft
-        this.emit("update");                                            //"Time"emmitet das update, welches von "Experience" registriert wird
+        //console.log(this.delta);      //Time is running
+        this.emit("update");                                           
         window.requestAnimationFrame(() => this.update());
     }
 
- }
+}

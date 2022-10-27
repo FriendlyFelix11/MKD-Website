@@ -17,7 +17,7 @@ export default class Room{
        this.room = this.resources.items.room;
        this.actualRoom = this.room.scene;
 
-       this.roomChildren = {};        //leeres Object für alle Meshs vom Raum
+       this.roomChildren = {};        //empty object for all meshes of the room
        
        console.log(this.room);
        console.log(this.actualRoom);
@@ -79,9 +79,9 @@ export default class Room{
            //Test Clipping Ende
 
 
-            //Materialänderungen--------------------------------------------------------------------------------------
+            //Change Materials--------------------------------------------------------------------------------------
 
-            //Aquarium wird durchsichtig: Werte von https://threejs.org/examples/?q=phy#webgl_materials_physical_transmission
+            //Aquarium glas: Values from https://threejs.org/examples/?q=phy#webgl_materials_physical_transmission
             if(child.name === "Glas"){
                 console.log(child)
                 child.material = new THREE.MeshPhysicalMaterial();
@@ -91,7 +91,7 @@ export default class Room{
                 child.material.transmission = 1;
                 child.material.opacity = 1;
 
-                //Wenn man nur ein Material eines Meshs "bedrucken" will-> child.children[0].material   ->Zahl im Inspector nachschauen
+                //To print something on a mesh-> child.children[0].material   ->Look up target in the Inspector
                 
             }
 
@@ -109,7 +109,7 @@ export default class Room{
             }
 
 
-            //Bildschirme---
+            //PC-Screens---
             if(child.name === "PcScreen001"){
                 child.material = new THREE.MeshBasicMaterial({
                     map: this.resources.items.screen,
@@ -189,10 +189,10 @@ export default class Room{
         //this.rectLight2.add( this.rectLightHelper );
 
 
-
+        this.actualRoom.scale.set(0.11,0.11,0.11);
         this.scene.add(this.actualRoom);
 
-        this.actualRoom.scale.set(0.11,0.11,0.11);
+        
         //this.actualRoom.rotation.y = Math.PI/2;     //Rotiert Raum passend zu Achsen (Wurde dann aber gleich in Blender gemacht)
     }
 
@@ -295,12 +295,8 @@ export default class Room{
 
 
         //Test
-
-        
         //this.MCube.material.bumpMap.needsUpdate=true;
-
         //TestEnde
-
 
         //Test Clipping
         this.mkdText.material = this.materialClipping

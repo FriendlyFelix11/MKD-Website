@@ -1,16 +1,16 @@
-//Lädt alle Assets
 import * as THREE from"three";
 import EventEmitter from "events";
 
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader.js"
 import {DRACOLoader} from "three/examples/jsm/loaders/DRACOLoader.js"
-import Experience from "../Experience.js";
+//import Experience from "../Experience.js";
 
+//Loads all Assets
 export default class Resources extends EventEmitter{
     constructor(assets){
         super();                                       
-        this.experience = new Experience();
-        this.renderer = this.experience.renderer;
+        //this.experience = new Experience();
+        //this.renderer = this.experience.renderer;
 
         this.assets = assets;
         
@@ -26,7 +26,7 @@ export default class Resources extends EventEmitter{
         this.loaders = {}
 
         this.loaders.gltfLoader = new GLTFLoader();
-        this.loaders.dracoLoader = new DRACOLoader();           //Dracoloader wegen Compression der BlenderDatei
+        this.loaders.dracoLoader = new DRACOLoader();           //Dracoloader for compressed Blender files
 
         this.loaders.dracoLoader.setDecoderPath("/draco/");
         this.loaders.gltfLoader.setDRACOLoader(this.loaders.dracoLoader);

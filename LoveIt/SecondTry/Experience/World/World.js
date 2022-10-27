@@ -37,11 +37,11 @@ export default class World extends EventEmitter{
     }
 
 
-    switchTheme(theme){
-        if(this.environment){
-            this.environment.switchTheme(theme);
-        }
-    }
+  //  switchTheme(theme){
+  //      if(this.environment){
+  //          this.environment.switchTheme(theme);
+  //      }
+  //  }
 
    
     resize(){

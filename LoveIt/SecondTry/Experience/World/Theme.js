@@ -1,6 +1,6 @@
 import EventEmitter from "events";
-import Experience from "../Experience";
-import World from "./World";
+//import Experience from "../Experience";
+//import World from "./World";
 
 export default class Theme extends EventEmitter{
     constructor(){
@@ -25,7 +25,7 @@ export default class Theme extends EventEmitter{
             document.body.classList.toggle("light-theme");
 
 
-            this.theme = this.theme ==="light"? "dark" : "light";       //Schau ob Theme = light-> Wenn nicht dann mach aus dark-> light
+            this.theme = this.theme ==="light"? "dark" : "light";       //Check for light-theme = light-> Wenn nicht dann mach aus dark-> light
             
 
             console.log(this.theme);

@@ -1,6 +1,6 @@
 import * as THREE from"three";
 import Experience from "./Experience.js";
-import Sizes from "./Utils/Sizes.js";
+//import Sizes from "./Utils/Sizes.js";
 
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls.js"
 import { GridHelper } from "three";
@@ -12,13 +12,12 @@ export default class Camera{
         this.scene = this.experience.scene;
         this.canvas = this.experience.canvas;
 
-        console.log(this.experience, this.sizes, this.scene, this.canvas)
+        //console.log(this.experience, this.sizes, this.scene, this.canvas)
 
 
-        //Test Look@
-
+        //Look@ Vector for camera movement
         this.oCamLookAt = new THREE.Vector3(0,1,0);
-        //Test Look@Ende
+        
         
 
         this.createPerspectiveCamera();
@@ -31,7 +30,7 @@ export default class Camera{
     }
 
 
-    //Erstellt eine Perspektivische Camera zum arbeiten
+    //creates a perspectivve camera 
     createPerspectiveCamera(){
         this.perspectiveCamera = new THREE.PerspectiveCamera(
             35, 
@@ -46,7 +45,7 @@ export default class Camera{
        
     }
 
-    //Erstellt eine Orthographische Kamera für finale Ansicht
+    //Creates a orthographic camera
     createOrthographicCamera(){
         
 
@@ -61,35 +60,29 @@ export default class Camera{
 
         this.orthographicCamera.position.set(0,4,5);
 
-        
-
         this.orthographicCamera.rotation.x = -Math.PI /6;   
         
         this.scene.add(this.orthographicCamera);
 
-        console.log(this.orthographicCamera);
+        //console.log(this.orthographicCamera);
 
         //Helper
         this.helper = new THREE.CameraHelper(this.orthographicCamera);
         //this.scene.add(this.helper);   
 
 
-
-
-        
-
     }
 
 
-    //Hilfestellungen
+    //Helpers
     setHelpers(){
         const size = 10;
         const division = 10;
         const gridHelper = new THREE.GridHelper(size, division);
-       // this.scene.add(gridHelper);
+        //this.scene.add(gridHelper);
 
         const axesHelper = new THREE.AxesHelper(10);
-       // this.scene.add(axesHelper);
+        //this.scene.add(axesHelper);
 
     }
 
@@ -104,7 +97,7 @@ export default class Camera{
 
 
 
-    //Cameras passen sich der Bildschirmgröße an
+    //Cameras adjust to screen size
     resize(){
         this.perspectiveCamera.aspect= this.sizes.aspect;
         this.perspectiveCamera.updateProjectionMatrix();
@@ -127,10 +120,9 @@ export default class Camera{
         this.helper.rotation.copy(this.orthographicCamera.rotation);
 
 
-        //Test Look@
-
+        //Look@ Vector to controll the camera movement
         this.orthographicCamera.lookAt(this.oCamLookAt);
-        //Test Look@Ende
+        
         
        
     }
