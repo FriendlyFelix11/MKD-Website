@@ -209,14 +209,14 @@ export default class Room{
         console.log("Animations active")
 
 
-        //Animationen-------------------------------------------------------------------------------------------------------------------
+        //Animation-------------------------------------------------------------------------------------------------------------------
 
-        //Fisch----
-        this.swim = this.mixer.clipAction(this.room.animations[0])      //Nimm aus "room" die erste Animation (gibt bislang nur eine)
+        //Fish----
+        this.swim = this.mixer.clipAction(this.room.animations[0])      //defining the animation
         this.swim.play();
 
 
-        //Uhrzeiger----
+        //Clock----
         this.minutes = this.mixer.clipAction(this.room.animations[1])      
         this.minutes.setLoop(THREE.LoopOnce);
         this.minutes.clampWhenFinished = true;

@@ -41,7 +41,7 @@ export default class Preloader extends EventEmitter{
         converter(document.querySelector(".hero-second-subheading"))
         converter(document.querySelector(".hero-second-subheading2"))
 
-        this.room = this.experience.world.room.actualRoom;
+        
         this.roomChildren = this.experience.world.room.roomChildren;
         console.log(this.roomChildren);
     
@@ -113,6 +113,12 @@ export default class Preloader extends EventEmitter{
                 z:0.1,
                 ease: "back.out(2.5)",
                 duration:2,
+            })
+
+            this.timeline.to(this.roomChildren.WallCover.position,{
+                y: 3,
+                ease: "power1.out",
+                duration: 1,
             })
 
             //Text animation
@@ -204,6 +210,7 @@ export default class Preloader extends EventEmitter{
             x: () =>{
                 return (this.sizes.width*0.000)    
               },
+            y:0,  
             ease: "power1.out",
             duration: 1,
         },"same")
@@ -637,6 +644,9 @@ export default class Preloader extends EventEmitter{
 
     //First Scroll------------------------------------------------------------------------------
 
+
+    //Scroll
+
     onScroll(e){
 
         if(e.deltaY > 0){
@@ -647,8 +657,29 @@ export default class Preloader extends EventEmitter{
         }
     }
 
+
+    //Touch
+
+    onTouch(e){
+        this.initialY = e.touches[0].clientY;
+    }
+
+    onTouchMove(e){
+        let currentY = e.touches[0].clientY;
+        let difference = this.initialY - currentY; //Checks for swipe Up
+        
+        if(difference > 0){
+            console.log("swiped");
+            this.removeEventListeners();
+            this.playSecondIntro();
+        }
+        this.initialY = null; //Not neccesary
+    }
+
     removeEventListeners(){
         window.removeEventListener("wheel", this.scrollOnce)
+        window.removeEventListener("touchstart", this.touchStart)
+        window.removeEventListener("touchmove", this.touchMove)
     }
     
 
@@ -659,8 +690,12 @@ export default class Preloader extends EventEmitter{
        await this.firstIntro();     //Wait here unitl firstIntro is done
        this.moveFlag = true;
        this.scrollOnce = this.onScroll.bind(this);
-       window.addEventListener("wheel", this.scrollOnce); //Check for first scroll
+       this.touchStart = this.onTouch.bind(this);
+       this.touchMove = this.onTouchMove.bind(this);
 
+       window.addEventListener("wheel", this.scrollOnce); //Check for first scroll
+       window.addEventListener("touchstart", this.touchStart);
+       window.addEventListener("touchmove", this.touchMove);
 
     }
 

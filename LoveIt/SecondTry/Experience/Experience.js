@@ -33,6 +33,7 @@ export default class Experience{
         this.theme = new Theme();
         this.world= new World();
         this.preloader= new Preloader();
+
         
         this.preloader.on("enablecontrols", ()=> {
             this.controls= new Controls();

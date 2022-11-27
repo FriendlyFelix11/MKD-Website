@@ -14,7 +14,7 @@ export default[
     {
         name: "screen2",
         type: "videoTexture",
-        path: "/textures/Marc.mp4"
+        path: "/textures/FelixRevit.mp4"
     },
 
     {

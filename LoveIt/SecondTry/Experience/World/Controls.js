@@ -68,7 +68,7 @@ export default class Controls{
 buildRoom2(){
   console.log("Raum 2 wird gebaut")
 
-  return new Promise((done)=>{
+  //return new Promise((done)=>{
 
   this.bulidRoom2Timeline = new GSAP.timeline()  
 
@@ -85,6 +85,7 @@ buildRoom2(){
     z: 1,
     duration:0.5,
     delay: 1.2,
+    ease: "back.out(2.2)",
     
   }, "sameTile")
 
@@ -94,6 +95,7 @@ buildRoom2(){
     z: 1,
     duration:0.5,
     delay: 1.5,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   this.bulidRoom2Timeline.to(this.roomChildren.FloorTile2.scale,{
@@ -102,6 +104,7 @@ buildRoom2(){
     z: 1,
     duration:0.5,
     delay: 1.8,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   this.bulidRoom2Timeline.to(this.roomChildren.FloorTile3.scale,{
@@ -110,6 +113,7 @@ buildRoom2(){
     z: 1,
     duration:0.5,
     delay: 2.1,
+    ease: "back.out(2.2)",
   }, "sameTile")
   
   this.bulidRoom2Timeline.to(this.roomChildren.FloorTile4.scale,{
@@ -118,6 +122,7 @@ buildRoom2(){
     z: 1,
     duration:0.5,
     delay: 2.4,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   //Würfel
@@ -127,6 +132,7 @@ buildRoom2(){
     z: 1,
     duration:0.5,
     delay:0.3,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   this.bulidRoom2Timeline.to(this.roomChildren.MagicCubeCube.scale,{
@@ -135,6 +141,7 @@ buildRoom2(){
     z: 1,
     duration:0.5,
     delay:0.6,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   //Regal
@@ -143,6 +150,7 @@ buildRoom2(){
     y: 1,
     z: 1,
     duration:0.5,
+    
   }, "sameTile")
 
   this.bulidRoom2Timeline.to(this.roomChildren.Book005.scale,{
@@ -151,6 +159,7 @@ buildRoom2(){
     z: 1,
     duration:0.5,
     delay:0.3,
+    
   }, "sameTile")
 
   this.bulidRoom2Timeline.to(this.roomChildren.Book006.scale,{
@@ -159,6 +168,7 @@ buildRoom2(){
     z: 1,
     duration:0.5,
     delay:0.3,
+   
   }, "sameTile")
 
   //VR
@@ -168,6 +178,7 @@ buildRoom2(){
     z: 1,
     duration:0.5,
     delay:0.3,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
 
@@ -175,25 +186,26 @@ buildRoom2(){
 
 
 
-})
+//})
 
 }
 
 buildRoom3(){
   console.log("Raum 3 wird gebaut")
 
-  return new Promise((done)=>{
+  //return new Promise((done)=>{
 
   this.bulidRoom3Timeline = new GSAP.timeline()  
 
   
 
-  //Wände---
+  //Walls---
   this.bulidRoom3Timeline.to(this.roomChildren.WallRoom3.scale,{
     x: 1,
     y: 1,
     z: 1,
     duration:0.5,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.BildTechZeich.scale,{
@@ -202,15 +214,17 @@ buildRoom3(){
     z: 1,
     duration:0.5,
     delay: 0.4,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
-  //Tische---
+  //Tables---
   this.bulidRoom3Timeline.to(this.roomChildren.TableFoot001.scale,{
     x: 1,
     y: 1,
     z: 1,
     duration:0.5,
     delay: 0.5,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.TableFoot002.scale,{
@@ -219,6 +233,7 @@ buildRoom3(){
     z: 1,
     duration:0.5,
     delay: 0.5,
+    ease: "back.out(2.2)",
   }, "sameTile")
   
   this.bulidRoom3Timeline.to(this.roomChildren.TableTop001.scale,{
@@ -227,6 +242,7 @@ buildRoom3(){
     z: 1,
     duration:0.6,
     delay: 0.4,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.TableTop002.scale,{
@@ -234,6 +250,7 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.6,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   //Softbox---
@@ -242,7 +259,8 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 1.1
+    delay: 1.1,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.SoftboxLicht.scale,{
@@ -250,7 +268,8 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 1.5
+    delay: 1.5,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.SoftboxSchirm.scale,{
@@ -258,7 +277,8 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 1.8
+    delay: 1.8,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.Steckdose.scale,{
@@ -266,7 +286,8 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 2.0
+    delay: 2.0,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   //Shooting
@@ -275,7 +296,8 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 1.1
+    delay: 1.1,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.CameraBack.scale,{
@@ -283,7 +305,8 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 1.3
+    delay: 1.3,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.Body.scale,{
@@ -291,7 +314,8 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 1.3
+    delay: 1.3,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.Tuchgestell.scale,{
@@ -299,7 +323,8 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 1.6
+    delay: 1.6,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.StativausCAD.scale,{
@@ -307,7 +332,8 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 2.0
+    delay: 2.0,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   //PCs---
@@ -316,7 +342,8 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 0.8
+    delay: 0.8,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.PcScreen004.scale,{
@@ -324,7 +351,8 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 0.8
+    delay: 0.8,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.PcScreen3DL.scale,{
@@ -332,7 +360,8 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 0.8
+    delay: 0.8,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.PcScreen3DR.scale,{
@@ -340,16 +369,18 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 0.8
+    delay: 0.8,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
-  //Kaffee---
+  //Coffee---
   this.bulidRoom3Timeline.to(this.roomChildren.CoffeeMug001.scale,{
     x: 1,
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 0.7
+    delay: 0.7,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   //Keyboard---
@@ -358,7 +389,8 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 0.9
+    delay: 0.9,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.Key160.scale,{
@@ -366,7 +398,8 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 0.9
+    delay: 0.9,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.KeyEsc001.scale,{
@@ -374,7 +407,8 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 0.9
+    delay: 0.9,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.Key092.scale,{
@@ -382,16 +416,18 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 0.9
+    delay: 0.9,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
-  //3DDrucker---
+  //3DPrinter---
   this.bulidRoom3Timeline.to(this.roomChildren.Text001.scale,{
     x: 1,
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 2.3
+    delay: 2.3,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.DPrinter001.scale,{
@@ -399,7 +435,8 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 2.3
+    delay: 2.3,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.DPrinterTerminal001.scale,{
@@ -407,7 +444,8 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 2.3
+    delay: 2.3,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.DPrinterPlatte001.scale,{
@@ -415,7 +453,8 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 2.3
+    delay: 2.3,
+    ease: "back.out(2.2)",
   }, "samePrinter")
 
   this.bulidRoom3Timeline.to(this.roomChildren.DPrinterSpule001.scale,{
@@ -423,7 +462,8 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 2.3
+    delay: 2.3,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.DPrinterMaterial001.scale,{
@@ -431,7 +471,8 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 2.3
+    delay: 2.3,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.DPrinterHalterDuse001.scale,{
@@ -439,7 +480,8 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 2.3
+    delay: 2.3,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.DPrinterDuse001.scale,{
@@ -447,7 +489,8 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 2.3
+    delay: 2.3,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.DPrinterKnopfe001.scale,{
@@ -455,7 +498,8 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 2.3
+    delay: 2.3,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.Circle.scale,{
@@ -463,7 +507,8 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 2.3
+    delay: 2.3,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.DPrinterScreen001.scale,{
@@ -471,7 +516,8 @@ buildRoom3(){
     y: 1,
     z: 1,
     duration:0.5,
-    delay: 2.3
+    delay: 2.3,
+    ease: "back.out(2.2)",
   }, "sameTile")
 
 
@@ -483,9 +529,11 @@ buildRoom3(){
 
 
 
-})
+//})
 
 }
+
+
 
 
 activatePrinterButton(){
@@ -537,8 +585,7 @@ printerButtonOn(){
   
   }
 
-  }
-  
+  } 
 
 printerButtonOff(){
   console.log("PrinterOff")
@@ -594,13 +641,13 @@ printerButtonBlinking2(){
               console.log("Desktop")
                 
 
-                //----Erste Bewegung------------------------------ Cam: 0,4,5 Look@: 0,1,0 Z:1
+                //----First Move------------------------------ Cam: 0,4,5 Look@: 0,1,0 Z:1
                 this.firstMoveTimeline = new GSAP.timeline({
 
-                  //Wann soll was passieren
+                  //When does smth happen?
                     scrollTrigger:{
-                        trigger: ".first-move",     //Klasse wählen
-                        start: "top top",       //Wenn obere Kante von div an oberer Kante des Bildschirms
+                        trigger: ".first-move",     //Select a class
+                        start: "top top",           //Top edge of the div is on the top edge of the screen
                         end:"bottom bottom",
                         id:"test1",
                         scrub: 0.6,
@@ -608,10 +655,10 @@ printerButtonBlinking2(){
                         //markers: true,
                     },
                 })
-                 //Was soll passieren
+                 //What will happen?
                  this.firstMoveTimeline.to(this.camera.orthographicCamera.position,{
                   x: () =>{
-                    return -(this.sizes.width*0.0016)     //With my PC = 1032px ich will, dass Camera bei x= 1,6 ist => 1.6/1032 = 0.0016
+                    return -(this.sizes.width*0.0016)     //With my PC = 1032px  Camera shall go to  x= 1,6  => 1.6/1032 = 0.0016
                   }
                  },"same1")
 
@@ -629,8 +676,8 @@ printerButtonBlinking2(){
                 //----Zweite Bewegung------------------------------ Cam: -1.6,4,5 Look@: -1.6,1,0 Z:1
                 this.secondMoveTimeline = new GSAP.timeline({
                     scrollTrigger:{
-                        trigger: ".second-move",     //Klasse wählen
-                        start: "top top",       //Wenn obere Kante von div an oberer Kante des Bildschirms
+                        trigger: ".second-move",     
+                        start: "top top",       
                         end:"bottom bottom",
                         id:"test2",
                         scrub: 0.6,
@@ -908,6 +955,145 @@ printerButtonBlinking2(){
         //Mobile ----------------------------------------------------------------------------------------------------------------------
         "(max-width: 969px)": ()=>{
 
+          //----First Move------------------------------  
+          this.firstMoveTimeline = new GSAP.timeline({
+
+            //When does smth happen?
+              scrollTrigger:{
+                  trigger: ".first-move",     //Select a class
+                  start: "top top",           //Top edge of the div is on the top edge of the screen
+                  end:"bottom bottom",
+                  id:"test1",
+                  scrub: 0.6,
+                  invalidateOnRefresh: true,
+                  //markers: true,
+              },
+          })
+           //What will happen?
+           this.firstMoveTimeline.to(this.camera.orthographicCamera.scale,{
+            x:1.6,
+            y:1.6,
+            z:1.6,
+           })
+
+
+           //----Zweite Bewegung------------------------------ 
+           this.secondMoveTimeline = new GSAP.timeline({
+            scrollTrigger:{
+                trigger: ".second-move",     
+                start: "top top",       
+                end:"bottom bottom",
+                id:"test2",
+                scrub: 0.6,
+                invalidateOnRefresh: true,
+                //markers: true,
+            },
+        })
+
+        this.secondMoveTimeline.to(this.camera.orthographicCamera.position,{
+          x: () =>{
+            return (this.sizes.width*-0.0032)     
+          }
+         },"same2")
+
+         this.secondMoveTimeline.to(this.camera.oCamLookAt,{
+          x: () =>{
+            return (this.sizes.width*-0.0032)   
+          }
+         },"same2")
+
+         this.secondMoveTimeline.to(this.camera.orthographicCamera.scale,{
+
+          x: 0.85,
+          y: 0.85,
+          z: 0.85,
+          
+         },"same2")
+
+
+
+          //----Dritte Bewegung------------------------------ 
+          this.thirdMoveTimeline = new GSAP.timeline({
+            scrollTrigger:{
+                trigger: ".third-move",     //Klasse wählen
+                start: "top top",       //Wenn obere Kante von div an oberer Kante des Bildschirms
+                end:"bottom bottom",
+                id:"test3",
+                scrub: 0.6,
+                invalidateOnRefresh: true,
+            },
+        })
+
+        this.thirdMoveTimeline.to(this.camera.orthographicCamera.position,{
+          x: () =>{
+            return -(this.sizes.width*0.002)     
+          },
+
+          y: 2
+
+         },"same3")
+
+         this.thirdMoveTimeline.to(this.camera.oCamLookAt,{
+          x: () =>{
+            return -(this.sizes.width*0.002)     
+          },
+
+          y: -1
+
+         },"same3")
+
+        this.thirdMoveTimeline.to(this.camera.orthographicCamera.scale,{
+
+          x: 0.5,
+          y: 0.5,
+          z: 0.5,
+          
+         },"same3")
+
+
+          //----newRoom Bewegung------------------------------ Cam: -1,2,5 Look@: -1,-1,0 Z:0.35
+          this.newRoomMoveTimeline = new GSAP.timeline({
+            scrollTrigger:{
+                trigger: ".newRoom-move",     //Klasse wählen
+                start: "top top",       //Wenn obere Kante von div an oberer Kante des Bildschirms
+                end:"bottom bottom",
+                id:"testNR",
+                scrub: 0.6,
+                invalidateOnRefresh: true,
+                //markers: true,
+            },
+        })
+
+         this.newRoomMoveTimeline.to(this.camera.orthographicCamera.position,{
+          x: () =>{
+            return (this.sizes.width*0.002)     
+          },
+
+          y: 5
+
+         },"sameNR")
+
+        this.newRoomMoveTimeline.to(this.camera.oCamLookAt,{
+          x: () =>{
+            return -(this.sizes.width*0.012)     
+          },
+
+          z: () =>{
+            return (this.sizes.width*0.006)     
+          },
+
+         },"sameNR")
+
+         this.newRoomMoveTimeline.to(this.camera.orthographicCamera.scale,{
+
+          x: 1.2,
+          y: 1.2,
+          z: 1.2,
+          
+         },"sameNR")
+
+           
+
         },
 
 
@@ -1092,7 +1278,7 @@ printerButtonBlinking2(){
     setupASScroll() {
         // https://github.com/ashthornton/asscroll
         const asscroll = new ASScroll({
-            ease: 0.15,           //Wie stark ist der smoothing effekt
+            ease: 0.09,           //How strong is the smooth scroll effect
             disableRaf: true 
         });
       

@@ -1,7 +1,7 @@
 import * as THREE from "three";
 
 import Experience from "./Experience.js";
-import Sizes from "./Utils/Sizes.js";
+
 
 export default class Renderer{
     constructor(){
