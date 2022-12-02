@@ -686,9 +686,9 @@ export default class Preloader extends EventEmitter{
 
    async playFirstIntro(){
 
-        this.scaleFlag = true;
+       
        await this.firstIntro();     //Wait here unitl firstIntro is done
-       this.moveFlag = true;
+       
        this.scrollOnce = this.onScroll.bind(this);
        this.touchStart = this.onTouch.bind(this);
        this.touchMove = this.onTouchMove.bind(this);
@@ -700,9 +700,7 @@ export default class Preloader extends EventEmitter{
     }
 
     async playSecondIntro(){
-        this.moveFlag = false
         await this.secondIntro();
-        this.scaleFlag = false;
         this.emit("enablecontrols")
     }
 

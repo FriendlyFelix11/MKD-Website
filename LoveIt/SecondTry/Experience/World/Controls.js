@@ -1272,9 +1272,6 @@ printerButtonBlinking2(){
         this.asscroll=this.setupASScroll();
     }
 
-
-
-
     setupASScroll() {
         // https://github.com/ashthornton/asscroll
         const asscroll = new ASScroll({
