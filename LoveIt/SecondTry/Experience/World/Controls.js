@@ -27,7 +27,7 @@ export default class Controls{
         this.circleSixed = this.experience.world.floor.circleSixed;
 
 
-
+        this.roomIsBuild = false;
          
 
         GSAP.registerPlugin(ScrollTrigger);
@@ -69,6 +69,16 @@ buildRoom2(){
   console.log("Raum 2 wird gebaut")
 
   //return new Promise((done)=>{
+
+  this.roomIsBuild = true;
+  
+  if(document.querySelector(".light-theme") == null){
+    GSAP.to(this.experience.world.environment.lightR3,{
+      intensity: 1.5,
+  }); 
+  }
+
+  
 
   this.bulidRoom2Timeline = new GSAP.timeline()  
 
@@ -194,6 +204,11 @@ buildRoom3(){
   console.log("Raum 3 wird gebaut")
 
   //return new Promise((done)=>{
+    
+
+    this.roomIsBuild2 = true;
+  
+    
 
   this.bulidRoom3Timeline = new GSAP.timeline()  
 
@@ -455,7 +470,7 @@ buildRoom3(){
     duration:0.5,
     delay: 2.3,
     ease: "back.out(2.2)",
-  }, "samePrinter")
+  }, "sameTile")
 
   this.bulidRoom3Timeline.to(this.roomChildren.DPrinterSpule001.scale,{
     x: 1,
@@ -523,7 +538,12 @@ buildRoom3(){
 
 
 
-
+  if(document.querySelector(".light-theme") == null){
+    GSAP.to(this.experience.world.room.rectLight2,{
+      intensity: 4,
+      delay: 2.3
+  }); 
+  }
 
 
 
@@ -580,8 +600,12 @@ printerButtonOn(){
   //this.roomChildren.Circle.material.color.g = 255
   //this.roomChildren.Circle.material.color.b = 0
 
-  this.blinking = setInterval(()=>this.printerButtonBlinking(), 1000)
+  //this.blinking = setInterval(()=>this.printerButtonBlinking(), 1000)
   this.isRed = false;
+  this.printerButtonBlinking();
+
+
+  
   
   }
 
@@ -591,7 +615,7 @@ printerButtonOff(){
   console.log("PrinterOff")
   document.querySelector(".Printer-activate").setAttribute("style", "display: none")
 
-  clearInterval(this.blinking)
+  //clearInterval(this.blinking)
   this.isRed = true
   this.roomChildren.Circle.material.color.r = 255
   this.roomChildren.Circle.material.color.g = 0
@@ -600,19 +624,36 @@ printerButtonOff(){
 }
 
 printerButtonBlinking(){
-  console.log("start")
+  //console.log("start")
+  //console.log(this.isRed)
+  if(this.isRed == false){
   this.roomChildren.Circle.material.color.r = 0
   this.roomChildren.Circle.material.color.g = 255
   this.roomChildren.Circle.material.color.b = 0
 
   setTimeout(()=>this.printerButtonBlinking2(),500)
+  }
+
+  else{
+    this.roomChildren.Circle.material.color.r = 255
+    this.roomChildren.Circle.material.color.g = 0
+    this.roomChildren.Circle.material.color.b = 0
+  }
   
 }
 
 printerButtonBlinking2(){
 
-  if(this.isRed != true){
+  if(this.isRed == false){
   this.roomChildren.Circle.material.color.r = 0
+  this.roomChildren.Circle.material.color.g = 0
+  this.roomChildren.Circle.material.color.b = 0
+
+  setTimeout(()=>this.printerButtonBlinking(),500)
+  }
+
+  else{
+    this.roomChildren.Circle.material.color.r = 255
   this.roomChildren.Circle.material.color.g = 0
   this.roomChildren.Circle.material.color.b = 0
   }
@@ -881,13 +922,10 @@ printerButtonBlinking2(){
                 trigger: ".Printer-move",     //Klasse wählen
                 start: "top top",       //Wenn obere Kante von div an oberer Kante des Bildschirms
                 end:"bottom bottom",
-                id:"test6",
+                id:"testpr1",
                 scrub: 0.6,
                 invalidateOnRefresh: true,
-                onEnter: ()=>this.printerButtonOn(),    //Scrolltrigegr Callbacks
-                onLeave: ()=>this.printerButtonOff(),
-                onEnterBack: ()=>this.printerButtonOn(),
-                onLeaveBack: ()=>this.printerButtonOff(), 
+                 
               
                 //markers: true,
             },
@@ -926,23 +964,66 @@ printerButtonBlinking2(){
         
 
 
+            //----Printer Bewegung 2------------------------------ Cam: 2,4.5,3.8 Look@: -3,-1.5,2 Z:0.35
+            this.PrinterMoveTimeline2 = new GSAP.timeline({
+              scrollTrigger:{
+                  trigger: ".Printer-move2",     //Klasse wählen
+                  start: "top top",       //Wenn obere Kante von div an oberer Kante des Bildschirms
+                  end:"bottom bottom",
+                  id:"testpr2",
+                  scrub: 0.6,
+                  invalidateOnRefresh: true,
+                  onEnter: ()=>this.printerButtonOn(),    //Scrolltrigegr Callbacks
+                  onLeave: ()=>this.printerButtonOff(),
+                  onEnterBack: ()=>this.printerButtonOn(),
+                  onLeaveBack: ()=>this.printerButtonOff(),
+                
+                  //markers: true,
+              },
+          })
+  
+
+            //----Sechste Bewegung ------------------------------ Cam: 2,4.5,3.8 Look@: -3,-1.5,2 Z:0.35
+            this.sixedMoveTimeline = new GSAP.timeline({
+              scrollTrigger:{
+                  trigger: ".sixed-move",     //Klasse wählen
+                  start: "top top",       //Wenn obere Kante von div an oberer Kante des Bildschirms
+                  end:"bottom bottom",
+                  id:"testpr2",
+                  scrub: 0.6,
+                  invalidateOnRefresh: true,
+                  
+                
+                  //markers: true,
+              },
+          })
+         
+          this.sixedMoveTimeline.to(this.camera.oCamLookAt,{
+          
+            x: () =>{
+              return -(this.sizes.width*0.0037)     
+            },
+  
+            z: () =>{
+              return -(this.sizes.width*0.0005)     
+            },
+  
+            y: -1.2
+  
+           },"same6")
+
+           this.sixedMoveTimeline.to(this.camera.orthographicCamera.scale,{
+
+            x: 0.18,
+            y: 0.18,
+            z: 0.18,
+            
+           },"same6")
       
 
 
 
-
-          //----Sechste Bewegung------------------------------
-          this.sixedMoveTimeline = new GSAP.timeline({
-            scrollTrigger:{
-                trigger: ".sixed-move",     //Klasse wählen
-                start: "top top",       //Wenn obere Kante von div an oberer Kante des Bildschirms
-                end:"bottom bottom",
-                id:"test6",
-                scrub: 0.6,
-                invalidateOnRefresh: true,
-                //markers: true,
-            },
-        })
+        
 
         
 

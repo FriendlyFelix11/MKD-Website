@@ -196,10 +196,7 @@ export default class Preloader extends EventEmitter{
             ease: "back.out(1.5)",
         },"sametexts")
 
-        //ToggleBar
-        this.timeline.to(".toggle-bar",{
-            opacity: 1
-        },"sametexts")
+        
 
         
 
@@ -633,7 +630,11 @@ export default class Preloader extends EventEmitter{
         },"same3")
 
         
-
+        //ToggleBar
+            this.timeline.to(".toggle-bar",{
+                opacity: 1,
+                delay: 0.3
+            },"same3")
 
     
     })

@@ -65,8 +65,18 @@ export default class Environment{
         this.sunLight.position.set(-1.5,7,3);
         this.scene.add(this.sunLight);
 
+
+
+        this.lightR2 = new THREE.PointLight("#ffffff", 4, 10);
+        this.lightR2.position.set(-2.7,1,3.5);
+        this.scene.add(this.lightR2);
+
+
+        this.lightR3 = new THREE.PointLight("#ffffff", 0, 10);
+        this.lightR3.position.set(-1,0.7,1.7);
+        this.scene.add(this.lightR3);
+
         
-       
 
         
 
@@ -89,6 +99,12 @@ export default class Environment{
                 b: 135/255            
             });
 
+            GSAP.to(this.lightR2.color,{
+                r: 44/255,
+                g: 71/255,
+                b: 135/255            
+            });
+
             GSAP.to(this.sunLight,{
                 intensity: 0.78,
             });
@@ -97,14 +113,28 @@ export default class Environment{
                 intensity: 0.78,
             });
 
+            GSAP.to(this.lightR2,{
+                intensity: 0.5,
+            });
+
+            
+            if(this.experience.controls.roomIsBuild==true){
+                GSAP.to(this.lightR3,{
+                    intensity: 1.5,
+                });  
+            }
+
+
 
             GSAP.to(this.experience.world.room.rectLight,{
                 intensity: 1
             })
 
+            if(this.experience.controls.roomIsBuild2==true){
             GSAP.to(this.experience.world.room.rectLight2,{
                 intensity: 4
             })
+        }
 
 
         }
@@ -124,12 +154,26 @@ export default class Environment{
                 b: 255/255
             });
 
+            GSAP.to(this.lightR2.color,{
+                r: 255/255,
+                g: 255/255,
+                b: 255/255
+            });
+
             GSAP.to(this.sunLight,{
                 intensity: 3,
             });
 
             GSAP.to(this.ambientlight,{
                 intensity: 1,
+            });
+
+            GSAP.to(this.lightR2,{
+                intensity: 4,
+            });
+
+            GSAP.to(this.lightR3,{
+                intensity: 0,
             });
 
             GSAP.to(this.experience.world.room.rectLight,{

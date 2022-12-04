@@ -135,18 +135,18 @@ export default class Room{
 
 
             //Canvas "maze" wird auf den Cube als Bumpmap gelegt; Canvas selbst ist display:none        //FÜR EXPORT AUSGEBLENDET 3 STELLEN: HIER; UPDATE & INDEX
-           // if(child.name === "MagicCubeCube"){
+            if(child.name === "MagicCubeCube"){
 
-                //this.MCube = child;
-                //this.bumpMap = new THREE.Texture(maze);
-                //
-                //child.material = new THREE.MeshPhongMaterial({
-                //    color: 0x00aa00,
-                //    bumpMap: this.bumpMap
-                //});
-                //child.bumpScale=-.9;
+                this.MCube = child;
+                this.bumpMap = new THREE.Texture(maze);
+                
+                child.material = new THREE.MeshPhongMaterial({
+                    color: 0x00aa00,
+                    bumpMap: this.bumpMap
+                });
+                child.bumpScale=-.9;
                  
-            //}
+            }
 
             
 
@@ -175,18 +175,19 @@ export default class Room{
 
 
          //Licht Softbox
-         const width2 = 0.9;
+         const width2 = 0.8;
          const height2 = 0.7;
          const intensity2 = 0;
          this.rectLight2 = new THREE.RectAreaLight( 0xffffff, intensity2,  width2, height2 );
          this.rectLight2.position.set( -35.2, 12.9, 31.25 );
          this.rectLight2.rotation.x = 7*Math.PI/6;
-         this.rectLight2.rotation.y = -Math.PI/10;
+         this.rectLight2.rotation.y = 0;
          this.actualRoom.add( this.rectLight2 );
         
 
         //this.rectLightHelper = new RectAreaLightHelper( this.rectLight2 );
         //this.rectLight2.add( this.rectLightHelper );
+
 
 
         this.actualRoom.scale.set(0.11,0.11,0.11);
@@ -295,7 +296,7 @@ export default class Room{
 
 
         //Test
-        //this.MCube.material.bumpMap.needsUpdate=true;
+        this.MCube.material.bumpMap.needsUpdate=true;
         //TestEnde
 
         //Test Clipping

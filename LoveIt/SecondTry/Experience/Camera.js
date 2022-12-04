@@ -81,7 +81,7 @@ export default class Camera{
         const gridHelper = new THREE.GridHelper(size, division);
         //this.scene.add(gridHelper);
 
-        const axesHelper = new THREE.AxesHelper(10);
+        //const axesHelper = new THREE.AxesHelper(10);
         //this.scene.add(axesHelper);
 
     }
