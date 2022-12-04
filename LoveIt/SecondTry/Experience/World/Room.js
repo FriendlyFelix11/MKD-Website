@@ -135,18 +135,18 @@ export default class Room{
 
 
             //Canvas "maze" wird auf den Cube als Bumpmap gelegt; Canvas selbst ist display:none        //FÜR EXPORT AUSGEBLENDET 3 STELLEN: HIER; UPDATE & INDEX
-            if(child.name === "MagicCubeCube"){
+            //if(child.name === "MagicCubeCube"){
 
-                this.MCube = child;
-                this.bumpMap = new THREE.Texture(maze);
+            //    this.MCube = child;
+            //    this.bumpMap = new THREE.Texture(maze);
                 
-                child.material = new THREE.MeshPhongMaterial({
-                    color: 0x00aa00,
-                    bumpMap: this.bumpMap
-                });
-                child.bumpScale=-.9;
+            //    child.material = new THREE.MeshPhongMaterial({
+            //        color: 0x00aa00,
+            //        bumpMap: this.bumpMap
+            //    });
+            //    child.bumpScale=-.9;
                  
-            }
+            //}
 
             
 
@@ -296,7 +296,7 @@ export default class Room{
 
 
         //Test
-        this.MCube.material.bumpMap.needsUpdate=true;
+        //this.MCube.material.bumpMap.needsUpdate=true;
         //TestEnde
 
         //Test Clipping
