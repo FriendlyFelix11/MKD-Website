@@ -68,10 +68,7 @@ export default class Controls{
 buildRoom2(){
   console.log("Raum 2 wird gebaut")
 
-  //return new Promise((done)=>{
-
   this.roomIsBuild = true;
-  
   if(document.querySelector(".light-theme") == null){
     GSAP.to(this.experience.world.environment.lightR3,{
       intensity: 1.5,
@@ -79,7 +76,6 @@ buildRoom2(){
   }
 
   
-
   this.bulidRoom2Timeline = new GSAP.timeline()  
 
   this.bulidRoom2Timeline.to(this.roomChildren.FloorRoom2.position,{
@@ -192,27 +188,16 @@ buildRoom2(){
   }, "sameTile")
 
 
-
-
-
-
-//})
-
 }
 
 buildRoom3(){
   console.log("Raum 3 wird gebaut")
-
-  //return new Promise((done)=>{
-    
-
-    this.roomIsBuild2 = true;
+  this.roomIsBuild2 = true;
   
     
+
 
   this.bulidRoom3Timeline = new GSAP.timeline()  
-
-  
 
   //Walls---
   this.bulidRoom3Timeline.to(this.roomChildren.WallRoom3.scale,{
@@ -547,10 +532,6 @@ buildRoom3(){
 
 
 
-
-
-//})
-
 }
 
 
@@ -561,31 +542,24 @@ activatePrinterButton(){
 
       console.log("Printer druckt")
 
-      this.experience.world.room.duese.clampWhenFinished=true;
+      this.experience.world.room.duese.clampWhenFinished=true;                //Play the animations for nozzle + holder
       this.experience.world.room.duesehalter.clampWhenFinished=true;
       this.experience.world.room.duese.setLoop(THREE.LoopOnce);
       this.experience.world.room.duesehalter.setLoop(THREE.LoopOnce);
       this.experience.world.room.duese.play();
       this.experience.world.room.duesehalter.play();
 
-      this.printerButtonOff();
-      this.alreadyPrinted = true
+      this.printerButtonOff();                                                 //Deactivate Button
+      this.alreadyPrinted = true                                               //Deactivate Button for rest of session
 
-
-       return new Promise((done)=>{
-        
-         this.PrintTimeline=new GSAP.timeline();
+      this.PrintTimeline = new GSAP.timeline();
      
-          this.PrintTimeline.to(this.experience.world.room.localClippingPlane,{
-          constant: 0.638,
-          duration:15,
-          delay:1.6
-          })
-     
-          
-          
-     
-       })
+      this.PrintTimeline.to(this.experience.world.room.localClippingPlane,{     //Animation for the clipping plane 
+      constant: 0.638,                                                          //To which point should the Plane move
+      duration:15,                                                              //nozzle+holder animation takes 15 seconds
+      delay:1.6
+    })
+       
 
   });
 }
@@ -596,11 +570,7 @@ printerButtonOn(){
     console.log("PrinterOn")
   document.querySelector(".Printer-activate").setAttribute("style", "display: flex");
   
-  //this.roomChildren.Circle.material.color.r = 0
-  //this.roomChildren.Circle.material.color.g = 255
-  //this.roomChildren.Circle.material.color.b = 0
-
-  //this.blinking = setInterval(()=>this.printerButtonBlinking(), 1000)
+  
   this.isRed = false;
   this.printerButtonBlinking();
 
@@ -967,8 +937,8 @@ printerButtonBlinking2(){
             //----Printer Bewegung 2------------------------------ Cam: 2,4.5,3.8 Look@: -3,-1.5,2 Z:0.35
             this.PrinterMoveTimeline2 = new GSAP.timeline({
               scrollTrigger:{
-                  trigger: ".Printer-move2",     //Klasse wählen
-                  start: "top top",       //Wenn obere Kante von div an oberer Kante des Bildschirms
+                  trigger: ".Printer-move2",     
+                  start: "top top",       
                   end:"bottom bottom",
                   id:"testpr2",
                   scrub: 0.6,

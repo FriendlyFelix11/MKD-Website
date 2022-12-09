@@ -39,7 +39,7 @@ svg{
 
 
 .light-theme{
-  --color-text: var(--color-text-light);      /*Alle Elemente mit color-text bekommen die Farbe color-text-light*/
+  --color-text: var(--color-text-light);             /*All elements of color-text get the color color-text-light*/
   --color-background: var(--color-primary-light);
   --color-secondary: var(--color-secondary-light);
   --color-third: var(--color-third-light);
@@ -47,9 +47,9 @@ svg{
 }
 
 .dark-theme{
-  --color-text: var(--color-text-dark);      /*Alle Elemente mit color-text bekommen die Farbe color-text-dark*/
+  --color-text: var(--color-text-dark);             /*All elements of color-text get the color color-text-dark*/
   --color-background: var(--color-primary-dark);
-  --color-secondary: var(--color-text-dark);  /* Die drei sollen auch alle weiß wie Text werden*/
+  --color-secondary: var(--color-text-dark);         /* 2nd, 3rd and 4th color should be white in dark mode*/
   --color-third: var(--color-text-dark);
   --color-fourth: var(--color-text-dark);
 }
